@@ -224,7 +224,7 @@ const pages = {
     title: 'Home',
     content: `
       <section>
-        <img src="${EXT}" alt="Kerk van Goede Bijstand" class="church-photo" style="height:260px;">
+        <img src="${EXT}" alt="Onze-Lieve-Vrouw van Goede Bijstand" class="church-photo" style="height:260px;">
         <p class="photo-caption">De barokke gevel van de Kerk van Goede Bijstand aan de Kolenmarkt &#169; Johan Bakker / CC Wikimedia</p>
 
         <h2>Gebed in de geest van Taiz&#233;</h2>
@@ -697,7 +697,7 @@ function navigate(pageKey) {
   if (!page) return;
   document.getElementById('main-content').innerHTML = page.content;
   document.getElementById('sidebar').innerHTML = getSidebar();
-  document.title = page.title + ' \u2014 Kerk van Goede Bijstand';
+  document.title = page.title + ' \u2014 Onze-Lieve-Vrouw van Goede Bijstand';
   document.querySelectorAll('nav a').forEach(a => {
     a.classList.toggle('active', a.dataset.page === pageKey);
   });
