@@ -497,6 +497,78 @@ const pages = {
         <div class="ornament">&#x2748; &#x2748; &#x2748;</div>
         <h3>Biechtgesprek, Ziekenzalving, Begrafenis</h3>
         <p>Gelieve contact op te nemen met pastoor Johnny De Mot via <a href="mailto:johnny.demot@viaporta.be">johnny.demot@viaporta.be</a>.</p>
+        <div class="ornament">&#x269C; &#x269C; &#x269C;</div>
+
+        <h2>Foto&#8217;s</h2>
+        <p>Voeg hier foto&#8217;s toe van onze activiteiten en evenementen.</p>
+
+        <div id="photo-upload-zone" style="border:2px dashed var(--border);border-radius:6px;background:var(--white);padding:2rem;text-align:center;margin:1rem 0;cursor:pointer;transition:border-color 0.2s,background 0.2s;"
+          onclick="document.getElementById('photo-file-input').click()"
+          ondragover="event.preventDefault();this.style.borderColor='var(--gold)';this.style.background='var(--pale-blue)';"
+          ondragleave="this.style.borderColor='var(--border)';this.style.background='var(--white)';"
+          ondrop="handlePhotoDrop(event)">
+          <div style="font-size:2.5rem;color:var(--gold);margin-bottom:0.5rem;">&#128247;</div>
+          <p style="color:var(--blue-mid);font-family:'Playfair Display',serif;font-size:1.05rem;margin:0 0 0.3rem;">Klik om foto&#8217;s te kiezen</p>
+          <p style="color:var(--muted);font-size:0.85rem;margin:0;">of sleep ze hierheen &mdash; JPG, PNG, GIF</p>
+          <input id="photo-file-input" type="file" accept="image/*" multiple style="display:none;" onchange="handlePhotoSelect(this.files)">
+        </div>
+
+        <div id="photo-gallery" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:0.8rem;margin-top:1rem;"></div>
+
+        <script>
+        (function(){
+          function loadPhotos(){
+            const stored = JSON.parse(localStorage.getItem('activiteiten_photos') || '[]');
+            stored.forEach(function(p){ addPhotoToGallery(p.src, p.caption, false); });
+          }
+          function savePhotos(){
+            const imgs = document.querySelectorAll('#photo-gallery .photo-item');
+            const data = Array.from(imgs).map(function(el){
+              return { src: el.querySelector('img').src, caption: el.querySelector('input').value };
+            });
+            try { localStorage.setItem('activiteiten_photos', JSON.stringify(data)); } catch(e){}
+          }
+          function addPhotoToGallery(src, caption, save){
+            const gallery = document.getElementById('photo-gallery');
+            const wrap = document.createElement('div');
+            wrap.className = 'photo-item';
+            wrap.style.cssText = 'position:relative;border-radius:4px;overflow:hidden;border:2px solid var(--pale-blue);box-shadow:0 2px 8px rgba(15,40,80,0.12);background:var(--white);';
+            const img = document.createElement('img');
+            img.src = src;
+            img.style.cssText = 'width:100%;height:140px;object-fit:cover;display:block;';
+            const cap = document.createElement('input');
+            cap.type = 'text';
+            cap.placeholder = 'Bijschrift...';
+            cap.value = caption || '';
+            cap.style.cssText = 'width:100%;border:none;border-top:1px solid var(--border);padding:0.3rem 0.5rem;font-family:EB Garamond,serif;font-size:0.82rem;color:var(--muted);font-style:italic;background:#fff;outline:none;';
+            cap.addEventListener('change', savePhotos);
+            const del = document.createElement('button');
+            del.innerHTML = '&times;';
+            del.style.cssText = 'position:absolute;top:4px;right:4px;background:rgba(15,40,80,0.7);color:#fff;border:none;border-radius:50%;width:22px;height:22px;font-size:14px;cursor:pointer;';
+            del.onclick = function(){ wrap.remove(); savePhotos(); };
+            wrap.appendChild(img); wrap.appendChild(cap); wrap.appendChild(del);
+            gallery.appendChild(wrap);
+            if(save) savePhotos();
+          }
+          window.handlePhotoSelect = function(files){
+            Array.from(files).forEach(function(file){
+              if(!file.type.startsWith('image/')) return;
+              const reader = new FileReader();
+              reader.onload = function(e){ addPhotoToGallery(e.target.result, '', true); };
+              reader.readAsDataURL(file);
+            });
+            document.getElementById('photo-file-input').value = '';
+          };
+          window.handlePhotoDrop = function(event){
+            event.preventDefault();
+            const zone = document.getElementById('photo-upload-zone');
+            zone.style.borderColor = 'var(--border)';
+            zone.style.background = 'var(--white)';
+            handlePhotoSelect(event.dataTransfer.files);
+          };
+          loadPhotos();
+        })();
+        </script>
       </section>`
   },
 
