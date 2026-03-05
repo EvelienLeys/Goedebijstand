@@ -496,6 +496,8 @@ function agendaHTML() {
 // BEHEERPANEEL
 // ═══════════════════════════════════════════════════════
 function openAdmin() {
+  const pw = prompt('Wachtwoord:');
+  if (pw !== 'mijnwachtwoord') return;
   document.getElementById('admin-overlay').classList.add('open');
   adminTab('toevoegen');
 }
