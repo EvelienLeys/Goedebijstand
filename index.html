@@ -894,41 +894,58 @@ const pages = {
       <h2>Kinderen &amp; Jongeren</h2>
       <p>Elke derde zondag van de maand is er kindernevendienst tijdens de viering van 11 uur.</p>
       <div class="kids-grid">
-        <div class="kids-card" onclick="navigate('bijtjes')"><div class="icon">&#x1F41D;</div><h3>Goede Bijtjes</h3><p>Voor kinderen van het eerste leerjaar en jonger.</p><p><a>Meer info &#8594;</a></p></div>
-        <div class="kids-card" onclick="navigate('mosterdzaadjes')"><div class="icon">&#x1F331;</div><h3>Mosterdzaadjes</h3><p>Voor kinderen van het 1e t.e.m. 3e leerjaar. Elke derde zondag van de maand.</p><p><a>Meer info &#8594;</a></p></div>
-        <div class="kids-card" onclick="navigate('vormsel')" style="grid-column:1/-1"><div class="icon">&#x271D;</div><h3>Vormsel &amp; Eerste Communie</h3><p>Wil je je kind laten vormen en zijn of haar eerste communie doen?</p><p><a>Meer info &#8594;</a></p></div>
+        <div class="kids-card" onclick="navigate('bijtjes')"><div class="icon">&#x1F41D;</div><h3>Goede Bijtjes</h3><p>Voor kinderen van de lagere school. Ze verkennen het geloof via verhalen, knutselen en gesprekken.</p><p><a>Meer info &#8594;</a></p></div>
+        <div class="kids-card" onclick="navigate('mosterdzaadjes')"><div class="icon">&#x1F331;</div><h3>Mosterdzaadjes</h3><p>De kindernevendienst voor kinderen van de lagere school. Elke derde zondag van de maand gaan ze apart aan de slag tijdens de viering van 11&nbsp;uur.</p><p><a>Meer info &#8594;</a></p></div>
+         <div class="kids-card" onclick="navigate('vormsel')" style="grid-column:1/-1"><div class="icon">&#x271D;</div><h3>Vormsel &amp; Eerste Communie</h3><p>Wil je je kind laten vormen en zijn of haar eerste communie doen? We begeleiden je graag op weg naar dit dubbele feest &mdash; een mooie tradite van de Brusselse kerk.</p><p><a>Meer info &#8594;</a></p></div>
       </div>
       <div class="ornament">&#x2748; &#x2748; &#x2748;</div>
       <h3>Jongeren</h3>
       <p>Via onze samenwerking met <strong>Kamino</strong> zijn er regelmatig activiteiten. <a onclick="navigate('samenwerking')">Meer over Kamino &#8594;</a></p>
     </section>` },
 
-  bijtjes: { title:'Goede Bijtjes', content:() => `
+   bijtjes: { title:'Goede Bijtjes', content:`
     <section>
       <div class="breadcrumb"><a onclick="navigate('home')">Home</a> <span>&#8250;</span> <a onclick="navigate('kinderen')">Kinderen &amp; Jongeren</a> <span>&#8250;</span> Goede Bijtjes</div>
       <h2>&#x1F41D; Goede Bijtjes</h2>
-      <p>Voor de kinderen van het eerste leerjaar en jonger.</p>
+      <p>Voor de kinderen van het eerste leerjaar en jonger, onze Goede Bijtjes</p>
+      <h3>Wat doen we?</h3>
+      <p>Onze bijenkorf opent tijdens de misviering van 11 uur. Een knutselplek, praatplek en vooral een plek waar we vanuit de leefwereld van de kinderen nadenken over de thema's die in de zondagsviering aan bod komen. </p>
       <h3>Wanneer?</h3>
       <p>Elke <strong>derde zondag van de maand</strong> tijdens de viering van 11&nbsp;uur in de Kerk van Goede Bijstand.</p>
       <p><a onclick="navigate('contact')">Neem contact op voor meer info &#8594;</a></p>
     </section>` },
 
-  mosterdzaadjes: { title:'Mosterdzaadjes', content:() => `
+  mosterdzaadjes: { title:'Mosterdzaadjes', content:`
     <section>
       <div class="breadcrumb"><a onclick="navigate('home')">Home</a> <span>&#8250;</span> <a onclick="navigate('kinderen')">Kinderen &amp; Jongeren</a> <span>&#8250;</span> Mosterdzaadjes</div>
       <h2>&#x1F331; Mosterdzaadjes</h2>
-      <p>De kinderen van het 1e, 2e en 3e leerjaar zijn welkom bij de Mosterdzaadjes.</p>
+      <p>De kinderen van het 1e, 2e en 3e leerjaar (en eventueel 4e leerjaar) zijn welkom bij de Mosterdzaadjes. Onze catechisten Magda, Petra en Johnny bieden een aantrekkelijk en eigentijds programma aan.</p>
+      <h3>Wat doen we?</h3>
+      <p>Een jaar lang leren de Mosterdzaadjes over delen, gevoelens uiten, de waarde van een goede vriend en andere lessen die Jezus en de geluksvogels ons leren. Dit is niet zo gemakkelijk, maar met zijn allen gaan we op weg, stapje voor stapje, samen op ontdekking. En zo gaan we samen, maand na maand, met de kinderen op weg naar onze 'Drempelviering'.
+      Het traject van de Mosterdzaadjes eindigt met een feestelijk 'Drempelviering' tijdens een zondagsviering in mei. Deze Drempelviering is een opstap naar de vormsel- en communiecatechese. Kinderen die nog niet aan de vormselcatechese toe zijn, blijven nog één, twee of drie jaartjes langer bij de Mosterdzaadjes. Ze mogen elk jaar meedoen met de Drempelviering als afsluiting van hun catechesejaar.</p>
       <h3>Wanneer?</h3>
       <p>Elke <strong>derde zondag van de maand</strong> tijdens de viering van 11&nbsp;uur.</p>
       <p><a onclick="navigate('contact')">Neem contact op voor meer info &#8594;</a></p>
     </section>` },
 
-  vormsel: { title:'Vormsel & Eerste Communie', content:() => `
+  vormsel: { title:'Vormsel & Eerste Communie', content:`
     <section>
       <div class="breadcrumb"><a onclick="navigate('home')">Home</a> <span>&#8250;</span> <a onclick="navigate('kinderen')">Kinderen &amp; Jongeren</a> <span>&#8250;</span> Vormsel &amp; Eerste Communie</div>
       <h2>&#x271D; Vormsel &amp; Eerste Communie</h2>
-      <p>In Brussel vieren we het <strong>vormsel en de eerste communie samen</strong>. Kinderen <strong>vanaf 8 jaar</strong> kunnen beginnen met de voorbereiding (2 of 3 jaar).</p>
-      <p>Contact: <a href="mailto:mariette.dhondt@gmail.com">mariette.dhondt@gmail.com</a></p>
+      <p>Je wil graag dat je kind gevormd wordt en zijn of haar eerste communie doet? <strong>Proficiat!</strong></p>
+      <p>In verschillende Brusselse kerken staan we klaar om je op weg daarnaartoe te begeleiden. Misschien eerst een kort woordje uitleg vooraf.</p>
+      <h3>Vormsel en communie samen</h3>
+      <p>Anders dan elders in Belgi&#235;, vieren we in Brussel het <strong>vormsel en de eerste communie samen</strong>. Hiermee grijpen we terug naar een heel oude traditie binnen de christelijke Kerk, waarbij gedoopten eerst het vormsel ontvingen &mdash; als bevestiging van het doopsel &mdash; en pas daarna uitgenodigd werden om deel te nemen aan de eucharistie en dus hun eerste communie te doen.</p>
+      <h3>Leeftijd en traject</h3>
+      <p>Kinderen <strong>vanaf 8 jaar</strong> kunnen zich op dit dubbele feest beginnen voorbereiden. Die voorbereiding verschilt van kerk tot kerk en duurt meestal 2 of 3 jaar. Je kind zal dus gevormd worden en voor het eerst te communie gaan <strong>ten vroegste op de leeftijd van 10 jaar</strong>.</p>
+      <div class="partner-item" style="margin-top:1.2rem;">
+        <strong>2-jarig traject &mdash; start in het vierde leerjaar</strong>
+      </div>
+      <div class="ornament">&#x2748; &#x2748; &#x2748;</div>
+      <h3>Contact</h3>
+      <p>Voor meer informatie en inschrijving, neem contact op met:<br>
+      <a href="mailto:mariette.dhondt@gmail.com">mariette.dhondt@gmail.com</a></p>
+      <p style="margin-top:1rem;"><a onclick="navigate('kinderen')">&#8592; Terug naar Kinderen &amp; Jongeren</a></p>
     </section>` },
 
   schelp: { title:'De Schelp', content:() => `
