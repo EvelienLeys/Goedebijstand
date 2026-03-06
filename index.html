@@ -188,7 +188,7 @@
   .ev-rij .ev-naam { color: var(--blue-navy); }
   .ev-rij .ev-type-badge { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; padding: 0.1rem 0.4rem; border-radius: 2px; background: var(--pale-blue); color: var(--blue-mid); flex-shrink: 0; }
   .ev-leeg { font-style: italic; color: var(--muted); font-size: 0.9rem; padding: 0.5rem 0; }
-  .admin-trigger { position: fixed; bottom: 1.5rem; right: 1.5rem; background: var(--blue-deep); color: var(--gold-lt); border: 2px solid var(--gold); border-radius: 50px; padding: 0.55rem 1.2rem; font-family: 'EB Garamond', serif; font-size: 0.88rem; letter-spacing: 0.06em; cursor: pointer; box-shadow: 0 4px 16px rgba(10,30,60,0.3); transition: background 0.2s, transform 0.15s; z-index: 999; display: flex; align-items: center; gap: 0.5rem; }
+  .admin-trigger { position: static; background: var(--blue-deep); color: var(--gold-lt); border: 2px solid var(--gold); border-radius: 50px; padding: 0.55rem 1.2rem; font-family: 'EB Garamond', serif; font-size: 0.88rem; letter-spacing: 0.06em; cursor: pointer; box-shadow: 0 4px 16px rgba(10,30,60,0.3); transition: background 0.2s, transform 0.15s; z-index: 999; display: inline-flex; align-items: center; gap: 0.5rem; }
   .admin-trigger:hover { background: var(--gold); color: var(--blue-navy); transform: translateY(-2px); }
 
   footer { background: linear-gradient(135deg, var(--blue-navy) 0%, var(--blue-deep) 100%); color: #cfe2f5; text-align: center; padding: 2rem 1rem; font-size: 0.88rem; border-top: 4px solid var(--gold); margin-top: 1rem; }
@@ -230,7 +230,7 @@
   <aside id="sidebar"></aside>
 </div>
 
-<button class="admin-trigger" onclick="openAdmin()">&#9998; Beheer agenda</button>
+<!--<button class="admin-trigger" onclick="openAdmin()">&#9998; Beheer agenda</button>-->
 
 <div id="admin-overlay">
   <div id="admin-login" style="background:#fff;border-radius:6px;border-top:4px solid var(--gold);box-shadow:0 8px 40px rgba(10,30,60,0.4);width:100%;max-width:340px;padding:2rem;text-align:center;">
@@ -436,7 +436,12 @@ function agendaHTML() {
     <span>◆ Activiteit</span>
     <span>♫ Muziek/Concert</span>
   </div>`;
-  return h;
+  h += `<div style="margin-top:0.8rem;text-align:right;">
+    <button class="admin-trigger" onclick="openAdmin()" style="position:static;box-shadow:none;font-size:0.82rem;padding:0.45rem 1rem;">
+      &#9998; Beheer agenda &nbsp;<span style="font-size:0.72rem;opacity:0.75;font-style:italic;">— Voorbehouden aan beheerders</span>
+    </button>
+  </div>`;
+  return h;;
 }
 
 // ═══════════════════════════════════════════════════════
