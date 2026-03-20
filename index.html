@@ -947,10 +947,77 @@ aside {
 .bank-block .iban { font-family: var(--font-disp); font-size: 1.25rem; font-weight: 500; color: var(--text-head); }
 .bank-block .bic { font-size: 0.85rem; color: var(--muted); }
 
-   /* GDPR COOKIE BANNER */
-#gdpr-banner { position: fixed; bottom: 0; ... }
-#gdpr-modal { display: none; position: fixed; inset: 0; ... }
-.gdpr-modal-box { ... }
+     /* GDPR COOKIE BANNER */
+#gdpr-banner {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  background: var(--navy-dark);
+  border-top: 3px solid var(--ink);
+  padding: 1rem 1.5rem;
+  display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap;
+  z-index: 9999;
+  box-shadow: 0 -4px 20px rgba(7,61,84,0.35);
+  font-size: 0.88rem; color: rgba(255,255,255,0.8);
+  transition: transform 0.4s ease;
+}
+#gdpr-banner.hidden { transform: translateY(110%); pointer-events: none; }
+#gdpr-banner p { flex: 1; min-width: 200px; margin: 0; line-height: 1.5; }
+#gdpr-banner a { color: var(--muted); text-decoration: underline; cursor: pointer; }
+#gdpr-banner a:hover { color: #fff; }
+.gdpr-btn-wrap { display: flex; gap: 0.6rem; flex-shrink: 0; }
+.gdpr-accept {
+  background: var(--ink); color: #fff; border: none;
+  padding: 0.5rem 1.2rem; font-family: var(--font-ui); font-size: 0.72rem;
+  font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+  border-radius: var(--radius); cursor: pointer; transition: background 0.2s;
+}
+.gdpr-accept:hover { background: var(--navy-mid); }
+.gdpr-more {
+  background: transparent; color: var(--muted);
+  border: 1px solid rgba(157,186,198,0.4); padding: 0.5rem 1rem;
+  font-family: var(--font-ui); font-size: 0.72rem; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  border-radius: var(--radius); cursor: pointer; transition: all 0.2s;
+}
+.gdpr-more:hover { border-color: var(--muted); color: #fff; }
+/* GDPR MODAL */
+#gdpr-modal {
+  display: none; position: fixed; inset: 0;
+  background: rgba(7,61,84,0.7); z-index: 10000;
+  align-items: center; justify-content: center;
+  padding: 1rem; backdrop-filter: blur(3px);
+}
+#gdpr-modal.open { display: flex; }
+.gdpr-modal-box {
+  background: var(--cream); border: 1px solid var(--border-color);
+  border-top: 4px solid var(--ink); border-radius: var(--radius);
+  max-width: 560px; width: 100%; max-height: 80vh; overflow-y: auto;
+  box-shadow: var(--shadow-lg);
+}
+.gdpr-modal-header {
+  background: var(--navy-dark); padding: 1.2rem 1.5rem;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.gdpr-modal-header h2 {
+  color: #fff; font-family: var(--font-disp);
+  font-weight: 300; font-size: 1.15rem; margin: 0;
+}
+.gdpr-close {
+  background: transparent; border: none; color: var(--muted);
+  font-size: 1.4rem; cursor: pointer; line-height: 1; padding: 0 0.2rem; transition: color 0.2s;
+}
+.gdpr-close:hover { color: #fff; }
+.gdpr-modal-body { padding: 1.5rem; color: var(--text-body); font-size: 0.92rem; line-height: 1.7; }
+.gdpr-modal-body h3 {
+  font-weight: 500; color: var(--text-head); font-size: 1rem;
+  margin: 1.2rem 0 0.4rem; padding-top: 0.8rem; border-top: 1px solid var(--border-color);
+}
+.gdpr-modal-body h3:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+.gdpr-modal-body a { color: var(--ink); }
+.gdpr-modal-body ul { margin: 0.4rem 0 0.4rem 1.4rem; line-height: 2.1; }
+.gdpr-modal-footer {
+  padding: 1rem 1.5rem; border-top: 1px solid var(--border-color);
+  display: flex; gap: 0.6rem; justify-content: flex-end; background: var(--surface);
+}
   /* 
 
 /* ═══════════════════════════════════════════════
@@ -989,10 +1056,70 @@ aside {
 <body>
 
 <!-- GDPR COOKIE BANNER -->
-<div id="gdpr-banner" class="hidden"> ... </div>
+<!-- GDPR COOKIE BANNER -->
+<div id="gdpr-banner" class="hidden">
+  <p>
+    &#10022; Deze website gebruikt enkel functionele cookies (taalkeuze, cookietoestemming).
+    Er worden geen trackingcookies of advertentiecookies gebruikt.
+    <a onclick="openGdprModal(event)">Meer informatie</a>
+  </p>
+  <div class="gdpr-btn-wrap">
+    <button class="gdpr-more" onclick="openGdprModal(event)">Details</button>
+    <button class="gdpr-accept" onclick="acceptGdpr()">Ik begrijp het</button>
+  </div>
+</div>
 
 <!-- GDPR DETAIL MODAL -->
-<div id="gdpr-modal"> ... </div>
+<!-- GDPR DETAIL MODAL -->
+<div id="gdpr-modal">
+  <div class="gdpr-modal-box">
+    <div class="gdpr-modal-header">
+      <h2>Privacy &amp; Cookies</h2>
+      <button class="gdpr-close" onclick="closeGdprModal()" aria-label="Sluiten">&times;</button>
+    </div>
+    <div class="gdpr-modal-body">
+      <h3>Wie zijn wij?</h3>
+      <p>
+        Dit is de website van de parochie <strong>Onze-Lieve-Vrouw van Goede Bijstand</strong>,
+        Kolenmarkt 91, 1000 Brussel. Kerkfabriek O.-L.-Vrouw van Goede Bijstand
+        (0211.215.223 &ndash; RPR Brussel).
+        Contacteer ons via <a href="mailto:2096@diomb.be">2096@diomb.be</a>.
+      </p>
+      <h3>Welke cookies gebruiken we?</h3>
+      <p>Wij gebruiken <strong>uitsluitend functionele cookies</strong>:</p>
+      <ul>
+        <li><strong>gb_lang</strong> &mdash; onthoudt uw taalkeuze (NL/FR/DE/EN/ES)</li>
+        <li><strong>gb_gdpr_accepted</strong> &mdash; onthoudt dat u deze melding gezien heeft</li>
+      </ul>
+      <p>
+        Er worden <strong>geen</strong> tracking-, reclame- of analytische cookies geplaatst.
+        Geen persoonsgegevens worden doorgegeven aan derden.
+      </p>
+      <h3>Hoe lang worden cookies bewaard?</h3>
+      <p>
+        De gegevens worden bewaard in <em>localStorage</em> van uw browser,
+        totdat u ze zelf verwijdert via de browserinstellingen.
+      </p>
+      <h3>Uw rechten</h3>
+      <p>
+        U kunt de opgeslagen gegevens wissen via
+        Instellingen &rarr; Privacy &rarr; Browsegegevens wissen.
+        Voor vragen: <a href="mailto:2096@diomb.be">2096@diomb.be</a>.
+      </p>
+      <h3>Externe links</h3>
+      <p>
+        Deze website bevat links naar externe sites (paulusgemeenschappen.be,
+        flemishmastersinsitu.com, &hellip;). Wij zijn niet verantwoordelijk voor
+        het privacybeleid van externe websites.
+      </p>
+    </div>
+    <div class="gdpr-modal-footer">
+      <button class="gdpr-more" onclick="closeGdprModal()">Sluiten</button>
+      <button class="gdpr-accept" onclick="acceptGdpr()">Ik begrijp het</button>
+    </div>
+  </div>
+</div>
+ 
    
 <!-- LANGUAGE BAR -->
 <div class="lang-bar">
