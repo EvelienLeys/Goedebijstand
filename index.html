@@ -1238,7 +1238,8 @@ const T = {
     // agenda
     ag_today:"Vandaag", ag_sun:"Zondagsviering — Goede Bijstand", ag_sat:"Mis — Finis Terrae",
     ag_taize:"Gebed in de geest van Taizé", ag_night:"Bijstand by Night (18–22 u)",
-    ag_easter:"Paaswake — Goede Bijstand",
+    ag_easter:"Paaswake — samen met andere Paulusgemeenschappen",
+    ag_pasen:"Paasviering met receptie — Goede Bijstand",
     ag_leg_viering:"Viering", ag_leg_taize:"Taizé", ag_leg_night:"Bijstand by Night", ag_leg_act:"Activiteit",
     ag_empty:"Geen activiteiten gepland in de komende 5 weken.",
   }
@@ -1373,7 +1374,8 @@ T.fr = Object.assign({}, T.nl, {
   sb_steunen:"Soutenir", sb_steunen_body:"Voulez-vous soutenir l'église ?", sb_steunen_link:"Plus d'info →",
   ag_today:"Aujourd'hui", ag_sun:"Célébration dominicale — Bon Secours", ag_sat:"Messe — Finis Terrae",
   ag_taize:"Prière dans l'esprit de Taizé", ag_night:"Bon Secours by Night (18h–22h)",
-  ag_easter:"Veillée pascale — Bon Secours",
+  ag_easter:"Veillée pascale — avec d'autres Communautés Paulus",
+  ag_pasen:"Célébration de Pâques avec réception — Bon Secours",
   ag_leg_viering:"Célébration", ag_leg_taize:"Taizé", ag_leg_night:"Bon Secours by Night", ag_leg_act:"Activité",
   ag_empty:"Aucune activité prévue dans les 5 prochaines semaines.",
 });
@@ -1502,7 +1504,8 @@ T.en = Object.assign({}, T.nl, {
   sb_steunen:"Support", sb_steunen_body:"Would you like to support the church?", sb_steunen_link:"More info →",
   ag_today:"Today", ag_sun:"Sunday Service — Our Lady of Good Help", ag_sat:"Mass — Finis Terrae",
   ag_taize:"Prayer in the Spirit of Taizé", ag_night:"Good Help by Night (6–10 PM)",
-  ag_easter:"Easter Vigil — Our Lady of Good Help",
+  ag_easter:"Easter Vigil — with other Paulus Communities",
+  ag_pasen:"Easter Service with reception — Our Lady of Good Help",
   ag_leg_viering:"Service", ag_leg_taize:"Taizé", ag_leg_night:"Good Help by Night", ag_leg_act:"Activity",
   ag_empty:"No activities planned in the next 5 weeks.",
 });
@@ -1514,6 +1517,8 @@ T.de = Object.assign({}, T.nl, {
   nav_activiteiten:"Aktivitäten", nav_wereldwijd:"weltweit", nav_kinderen:"Kinder & Jugend",
   nav_schelp:"Die Muschel", nav_samenwerking:"Zusammenarbeit", nav_sacramenten:"Sakramente",
   nav_overlijden:"Trauer", nav_contact:"Kontakt", footer_address:"Kirche — Kolenmarkt 91, 1000 Brüssel",
+  ag_easter:"Osternacht — mit anderen Paulus-Gemeinschaften",
+  ag_pasen:"Ostergottesdienst mit Empfang — Gute Beistand",
   zb_kicker:"Eine Pilgerreise in Erde", zb_title:"Die Welt der Guten Beistand",
   zb_subtitle:"Von jedem Ort der Erde ein Töpfchen Erde",
   zb_mission:"Eine lebenslange Mission",
@@ -1528,6 +1533,8 @@ T.es = Object.assign({}, T.nl, {
   nav_activiteiten:"Actividades", nav_wereldwijd:"Mundial", nav_kinderen:"Niños & Jóvenes",
   nav_schelp:"La Concha", nav_samenwerking:"Colaboraciones", nav_sacramenten:"Sacramentos",
   nav_overlijden:"Fallecimientos", nav_contact:"Contacto", footer_address:"Iglesia — Kolenmarkt 91, 1000 Bruselas",
+  ag_easter:"Vigilia Pascual — con otras Comunidades Paulus",
+  ag_pasen:"Celebración de Pascua con recepción — Buen Socorro",
   zb_kicker:"Una peregrinación en tierra", zb_title:"El Mundo del Buen Socorro",
   zb_subtitle:"De cada lugar de la tierra, un tarro de tierra",
   zb_mission:"Una Misión de por Vida",
@@ -1568,7 +1575,10 @@ const dkey = d => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-
 /* ══════════════════════════════════════════
    AGENDA ENGINE
 ══════════════════════════════════════════ */
-const FIXED = [{datum:'2026-04-04',tijd:'21:00',type:'viering',tk:'ag_easter'}];
+const FIXED = [
+  {datum:'2026-04-04', tijd:'21:00', type:'viering', tk:'ag_easter'},
+  {datum:'2026-04-05', tijd:'11:00', type:'viering', tk:'ag_pasen'},
+];
 const EV_ICONS = { viering:'✝', activiteit:'◆', muziek:'♫', taize:'✦', nacht:'🌙' };
 
 function genTaize() {
