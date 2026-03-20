@@ -1267,7 +1267,8 @@ T.fr = Object.assign({}, T.nl, {
   home_kerst_title:"Lettre de Noël 2025", home_kerst_sub:"Les Petites Sœurs de Jésus en Belgique",
   home_kerst_link:"Lire la Lettre de Noël 2025 →",
   home_news_title:"Actualités",
-  home_news_1:"Aperçu des célébrations d'avril", home_news_2:"Paul Huyskens",
+  home_news_1:"Aperçu des célébrations d'avril", home_news_drempel:"La Célébration du Seuil aura lieu le jeudi 14 mai 2026 (Ascension du Seigneur).",
+  home_news_2:"",
   home_news_3:"Kamino – Réseau jeunes", home_news_4:"Saisi par le froid, porté par la chaleur",
   home_news_5:"Noël : dois-je me taire ?",
   tag_vieringen:"Célébrations", tag_overlijden:"Décès", tag_samenwerking:"Partenariats",
@@ -1396,7 +1397,7 @@ T.en = Object.assign({}, T.nl, {
   home_night_body:"We open the church every Friday evening from May to August.",
   home_kerst_title:"Christmas Letter 2025", home_kerst_sub:"The Little Sisters of Jesus in Belgium",
   home_kerst_link:"Read the Christmas Letter 2025 →", home_news_title:"News",
-  home_news_1:"Services Overview April", home_news_2:"Paul Huyskens",
+  home_news_1:"Services Overview April",home_news_drempel: "Threshold Celebration takes place on Thursday 14 May 2026 (Ascension of the Lord).", home_news_2:"",
   home_news_3:"Kamino – Youth Network", home_news_4:"Caught in the Cold, Carried in Warmth",
   home_news_5:"Christmas: Should I Stay Silent?",
   tag_vieringen:"Services", tag_overlijden:"Bereavement", tag_samenwerking:"Partners",
@@ -1832,7 +1833,7 @@ function pageHTML(key) {
     </section>
     <section class="content-section">
       <h2 class="section-title">${t('home_news_title')}</h2>
-      <div class="news-item" onclick="go('vieringen')"><div class="news-tag">${t('tag_vieringen')}</div><div class="news-headline">${t('home_news_1')}</div></div>
+      <div class="news-item" onclick="go('vieringen')"><div class="news-tag">${t('tag_vieringen')}</div><div class="news-headline">${t('home_news_1')}</div><p class="news-body">${t('home_news_drempel')}</p></div>
       <div class="news-item" onclick="go('overlijden')"><div class="news-tag">${t('tag_overlijden')}</div><div class="news-headline">${t('home_news_2')}</div></div>
       <div class="news-item" onclick="go('samenwerking')"><div class="news-tag">${t('tag_samenwerking')}</div><div class="news-headline">${t('home_news_3')}</div></div>
       <div class="news-item" onclick="go('vieringen')"><div class="news-tag">${t('tag_bezinning')}</div><div class="news-headline">${t('home_news_4')}</div></div>
