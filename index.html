@@ -20,26 +20,24 @@
 ═══════════════════════════════════════════════ */
 :root {
   /* Kern */
-  --ink:           #0A5270;   /* koppen, links, accenten */
-  --navy-dark:     #073d54;   /* nav, footer, donkere vlakken */
-  --navy-mid:      #1a6b8a;   /* hover, subnav */
-  --muted:         #9DBAC6;   /* labels, borders, bijschriften */
-  --surface:       #F2F8FA;   /* kaartachtergrond, secties */
-  --cream:         #FFFFFF;   /* paginabasis */
-  --border-color:  #d4e6ed;   /* subtiele scheidingen */
+  --ink:           #0A5270;
+  --navy-dark:     #073d54;
+  --navy-mid:      #1a6b8a;
+  --muted:         #9DBAC6;
+  --surface:       #F2F8FA;
+  --cream:         #FFFFFF;
+  --border-color:  #d4e6ed;
 
-  /* Tekst — leesbaarheid eerst */
-  --text-body:     #2d2d2d;   /* bodytekst · 14.7:1 op wit · WCAG AAA */
-  --text-head:     #0A5270;   /* koppen op lichte achtergrond · 7.1:1 */
-  --text-inv:      #FFFFFF;   /* tekst op donkere vlakken · 8.2:1+ */
-  --text-sub:      #9DBAC6;   /* metadata, bijschriften · enkel groot/vet */
+  /* Tekst */
+  --text-body:     #2d2d2d;
+  --text-head:     #0A5270;
+  --text-inv:      #FFFFFF;
+  --text-sub:      #9DBAC6;
 
-  /* Typografie — Roboto-systeem */
-  --font-base:     'Roboto', sans-serif;        /* bodytekst, UI-elementen */
-  --font-disp:     'Roboto', sans-serif;        /* display/titels: weight 300 */
-  --font-ui:       'Roboto', sans-serif;        /* nav, labels, knoppen: weight 500, spatiëring */
-
-  /* Achterwaartse compatibiliteit (niet meer gebruikt) */
+  /* Typografie */
+  --font-base:     'Roboto', sans-serif;
+  --font-disp:     'Roboto', sans-serif;
+  --font-ui:       'Roboto', sans-serif;
   --serif-disp:    'Roboto', sans-serif;
   --serif-sc:      'Roboto', sans-serif;
   --serif-body:    'Roboto', sans-serif;
@@ -49,7 +47,6 @@
   --shadow-md:     0 6px 28px rgba(10,82,112,0.13);
   --shadow-lg:     0 16px 56px rgba(10,82,112,0.18);
 
-  /* Overig */
   --radius:        3px;
   --transition:    0.22s ease;
 }
@@ -63,7 +60,7 @@ body {
   font-family: var(--font-base);
   font-weight: 300;
   background: var(--cream);
-  color: var(--text-body);        /* bodytekst in bijna-zwart voor leesbaarheid */
+  color: var(--text-body);
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }
@@ -702,38 +699,6 @@ p:last-child { margin-bottom: 0; }
 .info-card p { color: var(--text-body); }
 
 /* ═══════════════════════════════════════════════
-   CONTACT FORM
-═══════════════════════════════════════════════ */
-.contact-grid { display: grid; gap: 0.9rem; margin-top: 1rem; }
-.field-label {
-  display: block;
-  font-family: var(--font-ui);
-  font-size: 0.68rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--ink);
-  margin-bottom: 0.25rem;
-}
-.field-input,
-.field-textarea {
-  width: 100%;
-  padding: 0.55rem 0.85rem;
-  border: 1px solid var(--border-color);
-  background: var(--cream);
-  font-family: var(--font-base);
-  font-size: 1rem;
-  font-weight: 300;
-  color: var(--text-body);
-  border-radius: var(--radius);
-  outline: none;
-  transition: border-color var(--transition);
-}
-.field-input:focus,
-.field-textarea:focus { border-color: var(--ink); }
-.field-textarea { min-height: 120px; resize: vertical; }
-
-/* ═══════════════════════════════════════════════
    SIDEBAR
 ═══════════════════════════════════════════════ */
 aside {
@@ -981,6 +946,38 @@ aside {
 .bank-block .bank-name { font-size: 0.82rem; color: var(--muted); }
 .bank-block .iban { font-family: var(--font-disp); font-size: 1.25rem; font-weight: 500; color: var(--text-head); }
 .bank-block .bic { font-size: 0.85rem; color: var(--muted); }
+
+/* ═══════════════════════════════════════════════
+   CONTACT MAILTO BOX
+═══════════════════════════════════════════════ */
+.mailto-box {
+  background: var(--surface);
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--ink);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.8rem;
+  margin-top: 1rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+.mailto-box__icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+.mailto-box__text {
+  flex: 1;
+}
+.mailto-box__text p {
+  font-size: 0.92rem;
+  color: var(--text-body);
+  margin-bottom: 0.3rem;
+}
+.mailto-box__text strong {
+  color: var(--text-head);
+}
 </style>
 </head>
 <body>
@@ -1142,7 +1139,7 @@ const T = {
     vier_3e_zon:"3e zondag: kindernevendienst",
     vier_agenda_note:"Alle vieringen zijn ook zichtbaar in de agenda op de homepage.",
     vier_bijzonder:"Bijzondere vieringen", vier_drempel_label:"Drempelviering",
-    vier_drempel_dag:"donderdag  — Onze-Lieve-Heer Hemelvaart",
+    vier_drempel_dag:"donderdag 14 mei 2026 — Onze-Lieve-Heer Hemelvaart",
     vier_paaswake_dag:"zaterdag 4 april 2026", vier_paaswake_label:"Paaswake — samen met andere Paulusgemeenschappen",
     vier_pasen_dag:"zondag 5 april 2026", vier_pasen_label:"Paasviering met receptie",
     vier_palm_dag:"zondag 29 maart 2026", vier_palm_label:"Palmzondag — Viering",
@@ -1179,7 +1176,7 @@ const T = {
     bijtjes_title:"Goede Bijtjes", bijtjes_desc:"Voor kinderen van het eerste leerjaar en jonger, onze Goede Bijtjes. Ze verkennen het geloof via verhalen, knutselen en gesprekken.",
     bijtjes_more:"Meer info →",
     moster_title: "Mosterdzaadjes", moster_desc: "De kinderen van het 1e, 2e en 3e leerjaar (en eventueel 4e leerjaar) zijn welkom bij de Mosterdzaadjes.",
-    moster_more:"Meer info →",   
+    moster_more:"Meer info →",
     vormsel_title:"Vormsel & Eerste Communie", vormsel_desc:"Wil je je kind laten vormen? We begeleiden je graag.",
     vormsel_more:"Meer info →",
     jongeren_h3:"Jongeren", jongeren_body:"Via onze samenwerking met Kamino zijn er regelmatig activiteiten.",
@@ -1206,11 +1203,11 @@ const T = {
     schelp_body:"De parochiezaal De Schelp is een rolstoeltoegankelijke ontmoetings- en vergaderruimte.",
     schelp_huren_h3:"Aanvragen",
     schelp_huren:"Het is momenteel niet mogelijk om De Schelp te huren. Deze pagina zal bijgewerkt worden zodra dit weer mogelijk is.",
-    schelp_contact_h3:"Contact", schelp_contact:"Stuur een bericht →",  
+    schelp_contact_h3:"Contact", schelp_contact:"Stuur een bericht →",
     // samenwerking
     samenwerking_title:"Samenwerking",
     // sacramenten
-    sacramenten_title:"Sacramenten",   
+    sacramenten_title:"Sacramenten",
     sacr_intro:"Voor alle sacramenten kunt u contact opnemen met de pastores van de Paulusgemeenschappen via <a href=\"https://www.paulusgemeenschappen.be/\">www.paulusgemeenschappen.be</a> of via mail: ",
     sacr_doop_h3:"Doopsel", sacr_doop:"Het doopsel is het eerste sacrament en het begin van het christelijke leven. Wilt u uw kind laten dopen of heeft u vragen over een volwassenendoop? Meer info vindt u op <a href=\"https://www.paulusgemeenschappen.be/nl/vieringen-sacramenten#doopsel\">www.paulusgemeenschappen.be</a>",
     sacr_biecht_h3:"Biechtgesprek", sacr_biecht:"Een biechtgesprek is een persoonlijk gesprek over verzoening en innerlijke vrijheid. Meer info vindt u op <a href=\"https://www.paulusgemeenschappen.be/nl/vieringen-sacramenten#biecht\">www.paulusgemeenschappen.be</a>",
@@ -1226,11 +1223,7 @@ const T = {
     contact_title:"Contact",
     contact_sec_h3:"Secretariaat", contact_pastor_h3:"Pastoor",
     contact_msg_h3:"Stuur ons een bericht",
-    contact_name:"Uw naam", contact_name_ph:"Voor- en achternaam",
-    contact_email:"E-mailadres",
-    contact_subject:"Onderwerp", contact_subject_ph:"Waar gaat uw vraag over?",
-    contact_message:"Bericht", contact_message_ph:"Schrijf hier uw bericht...",
-    contact_send:"Verstuur bericht", contact_sent:"Uw bericht is verstuurd. Dank u!",
+    contact_send:"Stuur een e-mail naar 2096@diomb.be",
     contact_loc_h3:"Locatie", contact_maps_link:"Bekijk op Google Maps →",
     // sidebar
     sb_vieringen:"Vieringen", sb_finis:"Finis Terrae", sb_finis_time:"Elke zaterdag om 16.30 u",
@@ -1376,10 +1369,8 @@ T.fr = Object.assign({}, T.nl, {
   overlijden_contact_body:"Pour signaler un décès ou discuter de funérailles, contactez le curé Johnny De Mot :",
   overlijden_label:"Décès",
   contact_title:"Contact", contact_sec_h3:"Secrétariat", contact_pastor_h3:"Curé",
-  contact_msg_h3:"Envoyez-nous un message", contact_name:"Votre nom", contact_name_ph:"Prénom et nom",
-  contact_email:"Adresse e-mail", contact_subject:"Sujet", contact_subject_ph:"De quoi parle votre question ?",
-  contact_message:"Message", contact_message_ph:"Écrivez votre message ici...",
-  contact_send:"Envoyer le message", contact_sent:"Votre message a été envoyé. Merci !",
+  contact_msg_h3:"Envoyez-nous un message",
+  contact_send:"Envoyer un e-mail à 2096@diomb.be",
   contact_loc_h3:"Localisation", contact_maps_link:"Voir sur Google Maps →",
   sb_vieringen:"Célébrations", sb_finis:"Finis Terrae", sb_finis_time:"Chaque samedi à 16h30",
   sb_gb:"Bon Secours", sb_gb_time:"Chaque dimanche à 11h00", sb_gb_kids:"Avec chaque 3e dimanche liturgie enfants :",
@@ -1406,77 +1397,9 @@ T.en = Object.assign({}, T.nl, {
   nav_schelp:"The Shell", nav_samenwerking:"Partners", nav_sacramenten:"Sacraments",
   nav_overlijden:"Bereavement", nav_contact:"Contact",
   footer_address:"Church Our Lady of Good Help — Kolenmarkt 91, 1000 Brussels",
-  home_agenda_title:"Agenda — Services & Activities", home_agenda_intro:"Overview of the next 5 weeks.",
-  home_paulus_title:"Paulus Communities", home_paulus_body:"Our church is part of the Paulus Communities, a network of Dutch-speaking faith communities in Brussels.",
-  home_paulus_box_title:"Why 'Paulus Communities'?", home_paulus_box_body:"The name refers to the Apostle Paul.",
-  home_paulus_btn:"Visit paulusgemeenschappen.be →",
-  home_taize_title:"Prayer in the Spirit of Taizé", home_taize_sub:"Every third Saturday — 8:00 PM",
-  home_taize_body:"Monthly prayer with songs from Taizé. Everyone is welcome.",
-  home_taize_h3:"Evening programme", home_taize_time:"8:00 PM Prayer | 8:40 PM Silence | 9:00 PM Song until 10:30 PM.",
-  home_night_title:"Good Help by Night", home_night_sub:"Every Friday evening May–August — 6–10 PM",
-  home_night_body:"We open the church every Friday evening from May to August.",
-  home_kerst_title:"Christmas Letter 2025", home_kerst_sub:"The Little Sisters of Jesus in Belgium",
-  home_kerst_link:"Read the Christmas Letter 2025 →", home_news_title:"News",
-  home_news_1:"Services Overview April",home_news_drempel: "Threshold Celebration takes place on Thursday 14 May 2026 (Ascension of the Lord).", home_news_2:"",
-  home_news_3:"Kamino – Youth Network", home_news_4:"Caught in the Cold, Carried in Warmth",
-  home_news_5:"Christmas: Should I Stay Silent?",
-  tag_vieringen:"Services", tag_overlijden:"Bereavement", tag_samenwerking:"Partners",
-  tag_bezinning:"Reflections", tag_homilies:"Homilies",
-  kerk_title:"The Church", kerk_intro:"The Church of Our Lady of Good Help is a magnificent baroque building in the heart of Brussels.",
-  kerk_gesch_h3:"History", kerk_gesch_body:"The church was built in the 17th century and dates largely from 1664.",
-  kerk_arch_h3:"Architecture & Art", kerk_arch_body:"The interior contains remarkable works of art, including the impressive high altar by Jan Pieter van Baurscheit the Elder.",
-  kerk_bezoek_h3:"Visit the church", kerk_bezoek_body:"Open every day 9 AM–5 PM, Sundays from 10 AM. Free admission.",
-  kerk_adres_h3:"Address", kerk_open_h3:"Opening hours",
-  kerk_open_body:"Every day: 9:00 AM – 5:00 PM\nSunday: 10:00 AM – 5:00 PM",
-  kerk_masters_link:"Discover the Flemish Masters in Situ →", kerk_maps_link:"View on Google Maps →",
-  bijstand_title:"Our Community",
-  tab_welkom:"Welcome", tab_krachtlijnen:"Our Values", tab_gemeenschap:"Paulus Community",
-  tab_team:"Team", tab_parochieploeg:"Parish Council", tab_kerkfabriek:"Church Board",
-  tab_gebed:"Prayer", tab_steunen:"Support Us",
-  welkom_title:"Welcome", welkom_1:"Welcome to the website of Our Lady of Good Help.",
-  welkom_2:"Perhaps you are curious about who we are.", welkom_3:"Either way: welcome.",
-  krachtlijnen_title:"Our Values", krachtlijnen_sub:"Who are we?",
-  krachtlijnen_1:"Connection: our community is very diverse and open.",
-  krachtlijnen_2:"Connection: aligning words and deeds.",
-  krachtlijnen_3:"We are connected when we celebrate together.",
-  krachtlijnen_4:"A human being is not made to journey alone.",
-  gemeenschap_title:"Our Community", gemeenschap_1:"Everyone is welcome. Our doors are open.",
-  gemeenschap_2:"On Sundays we gather for the service.",
-  team_title:"Team", team_body:"The team consists of two pastors.",
-  team_role:"Parish Priest, Responsible for Dutch-speaking pastoral care in Brussels centre",
-  parochieploeg_title:"Parish Council", parochieploeg_body:"The parish council meets every first Wednesday morning.",
-  parochieploeg_samenstelling:"Composition",
-  kerkfabriek_title:"Church Board", kerkfabriek_body:"Religious services are a regional responsibility.",
-  kerkfabriek_board:"Board of Directors", kerkfabriek_more:"Brussels Local Authorities →",
-  steunen_title:"Support Us", steunen_body:"Support the church with a donation.", steunen_q:"For questions:",
-  vieringen_title:"Services",
-  tab_overzicht:"Overview", tab_homilies:"Homilies", tab_bezinning:"Reflections", tab_fotos:"📷 Photos",
-  vier_vaste:"Regular Services",
-  vier_th_kerk:"Church", vier_th_dag:"Day", vier_th_uur:"Time", vier_th_bijz:"Notes",
-  vier_finis:"Finis Terrae", vier_sat:"Every Saturday", vier_gb:"Our Lady of Good Help", vier_sun:"Every Sunday",
-  vier_3e_zon:"3rd Sunday: children's liturgy",
-  vier_agenda_note:"All services are also visible in the agenda on the homepage.",
-  vier_bijzonder:"Special Services", vier_drempel_label:"Threshold Celebration",
-  vier_drempel_dag:"Thursday 14 May 2026 — Ascension of the Lord",
-  vier_paaswake_dag:"Saturday 4 April 2026", vier_paaswake_label:"Easter Vigil — with other Paulus Communities",
-  vier_pasen_dag:"Sunday 5 April 2026", vier_pasen_label:"Easter Service with reception",
-  vier_palm_dag:"Sunday 29 March 2026", vier_palm_label:"Palm Sunday — Service",
-  vier_witte_dag:"Thursday 2 April 2026", vier_witte_label:"Holy Thursday — Seder meal with foot washing — with confirmands and other Paulus Communities",
-  vier_vrijdag_dag:"Friday 3 April 2026", vier_vrijdag_label:"Good Friday — Service and veneration of the Cross",
-  vier_sintp:"Sint-Pieterskerk Uccle",
-  homilies_intro:"Homilies from services at the Church of Our Lady of Good Help.",
-  bezinning_intro:"Reflection texts, testimonies and spiritual meditations.",
-  act_title:"Activities & Events",
-  act_taize_h3:"Prayer in the Spirit of Taizé", act_taize_sub:"Every third Saturday, 8:00 PM",
-  act_taize_body:"A moment of prayer, silence and song. Everyone is welcome.",
-  act_night_h3:"Good Help by Night", act_night_sub:"Every Friday evening May–August, 6–10 PM",
-  act_night_body:"The church is open to everyone.",
-  act_masters_h3:"Flemish Masters in Situ", act_masters_cap:"High altar — Jan Pieter van Baurscheit the Elder",
-  act_masters_body:"For breathtaking baroque in marble and gold leaf, visit our church.",
-  act_masters_link:"Discover the Flemish Masters in Situ →",
-  act_klank_h3:"The Week of Sound", act_klank_body:"   ",
-  act_klank_link:"  →",
-  wereldwijd_title:"Worldwide",
+  contact_send:"Send an e-mail to 2096@diomb.be",
+  contact_msg_h3:"Send us a message",
+  ag_today:"Today", ag_empty:"No activities planned in the next 5 weeks.",
   zb_kicker:"A pilgrimage in earth", zb_title:"The World of Good Help",
   zb_subtitle:"From every place on earth, a jar of soil",
   zb_mission:"A Lifelong Mission",
@@ -1484,88 +1407,17 @@ T.en = Object.assign({}, T.nl, {
   zb_intro:"The community travels the world with one special mission: from every place they visit, they bring home a small jar of soil.",
   zb_stat_loc:"Locations", zb_stat_cont:"Continents", zb_stat_land:"Countries", zb_stat_verh:"Stories",
   zb_map_btn:"View the interactive map →",
-  kinderen_title:"Children & Youth", kinderen_intro:"Every third Sunday there is a children's liturgy during the 11 AM service.",
-  bijtjes_title:"Good Bees", bijtjes_desc:"For primary school children.", bijtjes_more:"More info →",
-  moster_title:"Mustard Seeds", moster_desc:"Children's liturgy every third Sunday.", moster_more:"More info →",
-  vormsel_title:"Confirmation & First Communion", vormsel_desc:"We will gladly guide you.", vormsel_more:"More info →",
-  jongeren_h3:"Youth", jongeren_body:"Through our partnership with Kamino.",
-  kamino_link:"More about Kamino →",
-  bijtjes_wat_h3:"What do we do?", bijtjes_wat:"Our hive opens during the 11 AM Mass.",
-  bijtjes_wanneer_h3:"When?", bijtjes_wanneer:"Every third Sunday during the 11 AM service.",
-  bijtjes_contact:"Contact us for more info →",
-  moster_intro:"Children in years 1, 2 and 3 of primary school are welcome.",
-  moster_wat_h3:"What do we do?", moster_wat:"The programme ends with a Threshold Celebration in May.",
-  moster_wanneer_h3:"When?", moster_wanneer:"Every third Sunday. Threshold Celebration: Thursday 14 May 2026.",
-  moster_contact:"Contact us for more info →",
-  vormsel_proficiat:"Congratulations!",
-  vormsel_samen_h3:"Confirmation and communion together", vormsel_samen:"In Brussels we celebrate both together.",
-  vormsel_leeftijd_h3:"Age and programme", vormsel_leeftijd:"Children from age 8 can begin preparing.",
-  vormsel_back:"← Back to Children & Youth",
-  schelp_title:"The Shell", schelp_body:"The parish hall is a wheelchair-accessible meeting space.",
-  schelp_huren_h3:"Requests", schelp_huren:"It is currently not possible to hire The Shell.",
-  schelp_contact_h3:"Contact", schelp_contact:"Send a message →",
-  samenwerking_title:"Partners",
-  sacramenten_title:"Sacraments", sacr_intro:"For all sacraments, please contact Fr. Johnny De Mot at",
-  sacr_doop_h3:"Baptism", sacr_doop:"Baptism is the first sacrament.",
-  sacr_biecht_h3:"Reconciliation", sacr_biecht:"A personal conversation about reconciliation.",
-  sacr_ziek_h3:"Anointing of the Sick", sacr_ziek:"A sacrament of comfort and strength.",
-  sacr_huw_h3:"Marriage", sacr_huw:"Would you like to marry at the Church of Our Lady of Good Help?",
-  sacr_vormsel_link:"Confirmation & First Communion →",
-  overlijden_title:"Bereavement", overlijden_contact_h3:"Funerals & Contact",
-  overlijden_contact_body:"To report a death or discuss a funeral, please contact Fr. Johnny De Mot:",
-  overlijden_label:"Bereavement",
-  contact_title:"Contact", contact_sec_h3:"Secretariat", contact_pastor_h3:"Parish Priest",
-  contact_msg_h3:"Send us a message", contact_name:"Your name", contact_name_ph:"First and last name",
-  contact_email:"Email address", contact_subject:"Subject", contact_subject_ph:"What is your question about?",
-  contact_message:"Message", contact_message_ph:"Write your message here...",
-  contact_send:"Send message", contact_sent:"Your message has been sent. Thank you!",
-  contact_loc_h3:"Location", contact_maps_link:"View on Google Maps →",
-  sb_vieringen:"Services", sb_finis:"Finis Terrae Church", sb_finis_time:"Every Saturday at 4:30 PM",
-  sb_gb:"Our Lady of Good Help", sb_gb_time:"Every Sunday at 11:00 AM", sb_gb_kids:"With every 3rd Sunday children's liturgy:",
-  sb_addr_gb:"Address Our Lady of Good Help", sb_open:"Open: every day 9–5 PM, Sunday from 10 AM",
-  sb_addr_ft:"Address Finis Terrae", sb_contact:"Contact", sb_msg:"Send a message →",
-  sb_pastores:"Priests", sb_pastor_role:"Parish Priest,\nResponsible for Dutch-speaking pastoral care in Brussels centre",
-  sb_steunen:"Support", sb_steunen_body:"Would you like to support the church?", sb_steunen_link:"More info →",
-  ag_today:"Today", ag_sun:"Sunday Service — Our Lady of Good Help", ag_sat:"Mass — Finis Terrae",
-  ag_taize:"Prayer in the Spirit of Taizé", ag_night:"Good Help by Night (6–10 PM)",
-  ag_palmzondag:"Palm Sunday — Service Our Lady of Good Help",
-  ag_witte_donderdag:"Holy Thursday — Seder meal with foot washing, Finis Terrae (Nieuwstraat) — with confirmands and other Paulus Communities",
-  ag_goede_vrijdag:"Good Friday — Service and veneration of the Cross, Sint-Pieterskerk Uccle centre",
-  ag_easter:"Easter Vigil — with other Paulus Communities",
-  ag_pasen:"Easter Service with reception — Our Lady of Good Help",
-  ag_leg_viering:"Service", ag_leg_taize:"Taizé", ag_leg_night:"Good Help by Night", ag_leg_act:"Activity",
-  ag_empty:"No activities planned in the next 5 weeks.",
 });
 
 T.de = Object.assign({}, T.nl, {
   lang_label:"Sprache", site_title:"Unsere Liebe Frau von der Guten Beistand", site_subtitle:"Kirche — Brüssel Zentrum",
-  site_paulus:"Pfarrkirche der Paulus-Gemeinschaften",
-  nav_home:"Startseite", nav_kerk:"Kirche", nav_bijstand:"Unsere Gemeinschaft", nav_vieringen:"Gottesdienste",
-  nav_activiteiten:"Aktivitäten", nav_wereldwijd:"weltweit", nav_kinderen:"Kinder & Jugend",
-  nav_schelp:"Die Muschel", nav_samenwerking:"Zusammenarbeit", nav_sacramenten:"Sakramente",
-  nav_overlijden:"Trauer", nav_contact:"Kontakt", footer_address:"Kirche — Kolenmarkt 91, 1000 Brüssel",
-  ag_easter:"Osternacht — mit anderen Paulus-Gemeinschaften",
-  ag_pasen:"Ostergottesdienst mit Empfang — Gute Beistand",
-  zb_kicker:"Eine Pilgerreise in Erde", zb_title:"Die Welt der Guten Beistand",
-  zb_subtitle:"Von jedem Ort der Erde ein Töpfchen Erde",
-  zb_mission:"Eine lebenslange Mission",
-  zb_headline:"Aus jedem Winkel der Welt\neine Handvoll Erde gesammelt",
+  contact_send:"E-Mail senden an 2096@diomb.be",
   ag_today:"Heute", ag_empty:"Keine Aktivitäten in den nächsten 5 Wochen geplant.",
 });
 
 T.es = Object.assign({}, T.nl, {
   lang_label:"Idioma", site_title:"Nuestra Señora del Buen Socorro", site_subtitle:"Iglesia — Centro de Bruselas",
-  site_paulus:"iglesia parroquial de las comunidades Paulus",
-  nav_home:"Inicio", nav_kerk:"La Iglesia", nav_bijstand:"Nuestra Comunidad", nav_vieringen:"Celebraciones",
-  nav_activiteiten:"Actividades", nav_wereldwijd:"Mundial", nav_kinderen:"Niños & Jóvenes",
-  nav_schelp:"La Concha", nav_samenwerking:"Colaboraciones", nav_sacramenten:"Sacramentos",
-  nav_overlijden:"Fallecimientos", nav_contact:"Contacto", footer_address:"Iglesia — Kolenmarkt 91, 1000 Bruselas",
-  ag_easter:"Vigilia Pascual — con otras Comunidades Paulus",
-  ag_pasen:"Celebración de Pascua con recepción — Buen Socorro",
-  zb_kicker:"Una peregrinación en tierra", zb_title:"El Mundo del Buen Socorro",
-  zb_subtitle:"De cada lugar de la tierra, un tarro de tierra",
-  zb_mission:"Una Misión de por Vida",
-  zb_headline:"De cada rincón del mundo\nun puñado de tierra recogido",
+  contact_send:"Enviar un correo a 2096@diomb.be",
   ag_today:"Hoy", ag_empty:"No hay actividades previstas en las próximas 5 semanas.",
 });
 
@@ -1581,7 +1433,6 @@ function setLang(lang) {
   document.documentElement.lang = lang;
   document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
   document.querySelectorAll('[data-i18n]').forEach(el => { const v = t(el.dataset.i18n); if (v) el.textContent = v; });
-  // update the paulus link text separately (it's inside an <a>)
   const paulusLink = document.querySelector('.hero-paulus a');
   if (paulusLink) paulusLink.textContent = t('site_paulus');
   const active = document.querySelector('nav a.active');
@@ -2268,12 +2119,12 @@ function pageHTML(key) {
     <section class="content-section">
       ${bc([[t('nav_home'),'home'], t('samenwerking_title')])}
       <h2 class="section-title">${t('samenwerking_title')}</h2>
-          <div class="partner-item"><strong>Kamino &ndash; Jongerennetwerk</strong><p>Jongerennetwerk van de katholieke kerk in Brussel. <a href="https://www.kamino.be" target="_blank">www.kamino.be &#8594;</a></p></div>
-        <div class="partner-item"><strong>Bijstandsnetwerk Brussel</strong><p>Co&#246;rdinatie Nederlandstalige pastoraal Brussel centrum.</p></div>
-        <div class="partner-item"><strong>Finis Terrae</strong><p>Zustergemeenschap aan de Nieuwstraat 76. Elke zaterdag 16.30&nbsp;u.</p></div>
-        <div class="partner-item"><strong>Taiz&#233;</strong><p>Maandelijks gebedsavond. <a onclick="navigate('home')">Meer info &#8594;</a></p></div>
-        <div class="partner-item"><strong>Paulusgemeenschappen</strong><p><a href="https://www.paulusgemeenschappen.be/nl" target="_blank">www.paulusgemeenschappen.be &#8594;</a></p></div>
-        <div class="partner-item"><strong>House of Compassion</strong><p><a href="https://www.houseofcompassion.be/" target="_blank">www.houseofcompassion.be &#8594;</a></p></div>
+      <div class="partner-item"><strong>Kamino &ndash; Jongerennetwerk</strong><p>Jongerennetwerk van de katholieke kerk in Brussel. <a href="https://www.kamino.be" target="_blank">www.kamino.be &#8594;</a></p></div>
+      <div class="partner-item"><strong>Bijstandsnetwerk Brussel</strong><p>Co&#246;rdinatie Nederlandstalige pastoraal Brussel centrum.</p></div>
+      <div class="partner-item"><strong>Finis Terrae</strong><p>Zustergemeenschap aan de Nieuwstraat 76. Elke zaterdag 16.30&nbsp;u.</p></div>
+      <div class="partner-item"><strong>Taiz&#233;</strong><p>Maandelijks gebedsavond. <a onclick="go('home')">Meer info &#8594;</a></p></div>
+      <div class="partner-item"><strong>Paulusgemeenschappen</strong><p><a href="https://www.paulusgemeenschappen.be/nl" target="_blank">www.paulusgemeenschappen.be &#8594;</a></p></div>
+      <div class="partner-item"><strong>House of Compassion</strong><p><a href="https://www.houseofcompassion.be/" target="_blank">www.houseofcompassion.be &#8594;</a></p></div>
     </section>`;
 
   /* ── SACRAMENTEN ── */
@@ -2315,20 +2166,13 @@ function pageHTML(key) {
       <p><strong>Johnny De Mot</strong><br><a href="mailto:johnny.demot@viaporta.be">johnny.demot@viaporta.be</a></p>
       <div class="ornament">✦ ✦ ✦</div>
       <p class="subsection-title">${t('contact_msg_h3')}</p>
-      <div class="contact-grid">
-        <div><label class="field-label">${t('contact_name')}</label><input id="cf-naam" class="field-input" type="text" placeholder="${t('contact_name_ph')}"></div>
-<div><label class="field-label">${t('contact_email')}</label><input id="cf-email" class="field-input" type="email" placeholder="${t('contact_email')}"></div>
-<div><label class="field-label">${t('contact_subject')}</label><input id="cf-onderwerp" class="field-input" type="text" placeholder="${t('contact_subject_ph')}"></div>
-<div><label class="field-label">${t('contact_message')}</label><textarea id="cf-bericht" class="field-textarea" placeholder="${t('contact_message_ph')}"></textarea></div>
-<div><button class="btn" onclick="
-  const naam = document.getElementById('cf-naam').value;
-  const email = document.getElementById('cf-email').value;
-  const onderwerp = document.getElementById('cf-onderwerp').value;
-  const bericht = document.getElementById('cf-bericht').value;
-  const body = encodeURIComponent((naam ? 'Naam: ' + naam + '\nE-mail: ' + email + '\n\n' : '') + bericht);
-  const subj = encodeURIComponent(onderwerp || 'Bericht via website');
-  window.location.href = 'mailto:2096@diomb.be?subject=' + subj + '&body=' + body;
-">${t('contact_send')}</button></div>
+      <div class="mailto-box">
+        <div class="mailto-box__icon">✉</div>
+        <div class="mailto-box__text">
+          <p><strong>2096@diomb.be</strong></p>
+          <p style="font-size:0.88rem;color:var(--muted);">Kerkfabriek Onze-Lieve-Vrouw van Goede Bijstand</p>
+        </div>
+        <a class="btn" href="mailto:2096@diomb.be">${t('contact_send')}</a>
       </div>
       <div class="ornament">✦ ✦ ✦</div>
       <p class="subsection-title">${t('contact_loc_h3')}</p>
@@ -2363,7 +2207,6 @@ function go(key) {
 document.documentElement.lang = LANG;
 document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang===LANG));
 document.querySelectorAll('[data-i18n]').forEach(el => { const v=t(el.dataset.i18n); if(v) el.textContent=v; });
-// Set the paulus link text on init
 const paulusLink = document.querySelector('.hero-paulus a');
 if (paulusLink) paulusLink.textContent = t('site_paulus');
 go('home');
