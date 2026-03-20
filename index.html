@@ -1143,6 +1143,8 @@ const T = {
     vier_agenda_note:"Alle vieringen zijn ook zichtbaar in de agenda op de homepage.",
     vier_bijzonder:"Bijzondere vieringen", vier_drempel_label:"Drempelviering",
     vier_drempel_dag:"donderdag  — Onze-Lieve-Heer Hemelvaart",
+    vier_paaswake_dag:"zaterdag 4 april 2026", vier_paaswake_label:"Paaswake in Goede Bijstand — samen met andere Paulusgemeenschappen",
+    vier_pasen_dag:"zondag 5 april 2026", vier_pasen_label:"Paasviering met receptie",
     homilies_intro:"Homilies van vieringen in de Kerk van Goede Bijstand.",
     bezinning_intro:"Bezinningsteksten, getuigenissen en spirituele reflecties.",
     // activiteiten
@@ -1238,7 +1240,7 @@ const T = {
     // agenda
     ag_today:"Vandaag", ag_sun:"Zondagsviering — Goede Bijstand", ag_sat:"Mis — Finis Terrae",
     ag_taize:"Gebed in de geest van Taizé", ag_night:"Bijstand by Night (18–22 u)",
-    ag_easter:"Paaswake — samen met andere Paulusgemeenschappen",
+    ag_easter:"Paaswake in Goede Bijstand — samen met andere Paulusgemeenschappen",
     ag_pasen:"Paasviering met receptie — Goede Bijstand",
     ag_leg_viering:"Viering", ag_leg_taize:"Taizé", ag_leg_night:"Bijstand by Night", ag_leg_act:"Activiteit",
     ag_empty:"Geen activiteiten gepland in de komende 5 weken.",
@@ -1310,6 +1312,8 @@ T.fr = Object.assign({}, T.nl, {
   vier_agenda_note:"Toutes les célébrations sont également visibles dans l'agenda.",
   vier_bijzonder:"Célébrations spéciales", vier_drempel_label:"Célébration du Seuil",
   vier_drempel_dag:"jeudi 14 mai 2026 — Ascension du Seigneur",
+  vier_paaswake_dag:"samedi 4 avril 2026", vier_paaswake_label:"Veillée pascale — avec d'autres Communautés Paulus",
+  vier_pasen_dag:"dimanche 5 avril 2026", vier_pasen_label:"Célébration de Pâques avec réception",
   homilies_intro:"Homélies des célébrations à l'église du Bon Secours.",
   bezinning_intro:"Textes de réflexion, témoignages et méditations spirituelles.",
   act_title:"Activités & Événements",
@@ -1440,6 +1444,8 @@ T.en = Object.assign({}, T.nl, {
   vier_agenda_note:"All services are also visible in the agenda on the homepage.",
   vier_bijzonder:"Special Services", vier_drempel_label:"Threshold Celebration",
   vier_drempel_dag:"Thursday 14 May 2026 — Ascension of the Lord",
+  vier_paaswake_dag:"Saturday 4 April 2026", vier_paaswake_label:"Easter Vigil — with other Paulus Communities",
+  vier_pasen_dag:"Sunday 5 April 2026", vier_pasen_label:"Easter Service with reception",
   homilies_intro:"Homilies from services at the Church of Our Lady of Good Help.",
   bezinning_intro:"Reflection texts, testimonies and spiritual meditations.",
   act_title:"Activities & Events",
@@ -1996,6 +2002,8 @@ function pageHTML(key) {
         <table class="data-table">
           <thead><tr><th>${t('vier_th_kerk')}</th><th>${t('vier_th_dag')}</th><th>${t('vier_th_uur')}</th><th>${t('vier_th_bijz')}</th></tr></thead>
           <tbody>
+            <tr><td>${t('vier_gb')}</td><td>${t('vier_paaswake_dag')}</td><td>21.00</td><td>${t('vier_paaswake_label')}</td></tr>
+            <tr><td>${t('vier_gb')}</td><td>${t('vier_pasen_dag')}</td><td>11.00</td><td>${t('vier_pasen_label')}</td></tr>
             <tr><td>${t('vier_gb')}</td><td>${t('vier_drempel_dag')}</td><td>11.00</td><td>${t('vier_drempel_label')}</td></tr>
           </tbody>
         </table>
