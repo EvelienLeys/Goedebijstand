@@ -1,1 +1,2 @@
-# Goedebijstand_zandbank
+# Goedebijstand
+Testpagina voor nieuwe site Onze-Lieve-Vrouw van Goede Bijstand Brussel
